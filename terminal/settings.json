@@ -44,12 +44,12 @@
   "initialRows": 50,
   "profiles": {
     "defaults": {
-      "acrylicOpacity": 0.84999999999999998,
-      "antialiasingMode": "cleartype",
+      // "acrylicOpacity": 0.80,
+      // "antialiasingMode": "cleartype",
       "bellStyle": "none",
       "closeOnExit": "graceful",
       "colorScheme": "Dark++",
-      "fontFace": "JetBrainsMono Nerd Font",
+      "fontFace": "JetBrainsMono Nerd Font Mono",
       "fontSize": 11,
       "useAcrylic": false
     },

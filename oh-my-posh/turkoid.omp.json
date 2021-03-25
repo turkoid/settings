@@ -1,0 +1,129 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "#aaaaaa",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "",
+            "postfix": " ",
+            "mint": "<#a2e4b8>\uF30F</>",
+            "ubuntu": "<#e95420>\uF31C</>",
+            "windows": "<#00adef>\uE70F</>"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#ffc62f",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "",
+            "postfix": " ",
+            "root_icon": "\uF0E7"
+          }
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#81c784",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " "
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#56b6c2",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " ",
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#d0666f",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " ",
+            "color_background": false,
+            "display_stash_count": true,
+            "local_changes_color": "#ffeb3b",
+            "working_color": "#ff1744",
+            "staging_color": "#4caf50",
+            "ahead_color": "#26c6da",
+            "behind_color": "#ff1744"
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#4b8bbe",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</> ",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "foreground": "#00adef",
+          "background": "#2f2f2f",
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uFB0F</> ",
+            "postfix": " ",
+            "display_version": false
+          }
+        },
+        {
+          "type": "text",
+          "style": "diamond",
+          "trailing_diamond": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#2f2f2f",
+          "properties": {
+            "text": "",
+            "postfix": "",
+            "prefix": ""
+          }
+        }
+      ]
+    },
+    {
+      "type": "newline"
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "\u276F"
+          }
+        }
+      ]
+    }
+  ]
+}
