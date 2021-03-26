@@ -1,32 +1,72 @@
-function bash_grep {
-  $input | out-string -stream | select-string @args
+function Find-String {
+  $Input | Out-String -Stream | Select-String $args
 }
 
-function bash_touch($path) {
-  if (!(Test-Path "$path")) {
-    Set-Content -Path "$path" -Value ($null)
+function New-File {
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory = $true)]
+    [string]
+    $Path
+  )
+
+  if (Test-Path "$Path") {
+    (Get-Item "$Path").LastWriteTime = Get-Date
   }
   else {
-    (Get-Item "$path").LastWriteTime = Get-Date
+    Set-Content $Path -Value ($null)
   }
 }
 
-function bash_ls_alF {
-  Get-ChildItem -force @args
+function Get-AllFiles {
+  Get-ChildItem -Force @args
 }
 
-function bash_ls_alF_no_system {
-  Get-ChildItem -force -attributes !s @args
+function Get-AllNonSystemFiles {
+  Get-AllFiles -attributes !s @args
 }
 
 function bash_rm_rf {
   Remove-Item -Recurse -Force @args
 }
 
-Set-Alias grep "bash_grep"
-Set-Alias touch "bash_touch"
-Set-Alias la "bash_ls_alF"
-Set-Alias ll "bash_ls_alF_no_system"
-Set-Alias rmrf "bash_rm_rf"
+function Select-Command {
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory = $true)]
+    [string]
+    $Command
+  )
+  where.exe $Command
+}
+
+function Remove-Stuff {
+  [CmdletBinding()]
+  param (
+    [Parameter()]
+    [switch]
+    $rf,
+
+    [Parameter(Position = 0, Mandatory = $true)]
+    [string]
+    $Path,
+
+    [Parameter(Position = 1, ValueFromRemainingArguments)]
+    $Remaining
+  )
+
+  if ($rf) {
+    Remove-Item -Path "$Path" -Force -Recurse @Remaining
+  }
+  else {
+    Remove-Item -Path "$Path" @Remaining
+  }
+}
+
+Set-Alias grep 'Find-String'
+Set-Alias touch 'New-File'
+Set-Alias la 'Get-AllFiles'
+Set-Alias ll 'Get-AllNonSystemFiles'
+Set-Alias rm 'Remove-Stuff'
 
 Export-ModuleMember -Alias * -Function *

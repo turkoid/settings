@@ -78,7 +78,8 @@
           "background": "#2f2f2f",
           "properties": {
             "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</> ",
-            "postfix": ""
+            "postfix": " ",
+            "display_mode": "environment"
           }
         },
         {
