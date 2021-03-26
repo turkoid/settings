@@ -15,7 +15,7 @@
           "foreground": "#aaaaaa",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "",
+            "prefix": " ",
             "postfix": " ",
             "mint": "<#a2e4b8>\uF30F</>",
             "ubuntu": "<#e95420>\uF31C</>",
@@ -78,7 +78,8 @@
           "background": "#2f2f2f",
           "properties": {
             "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</> ",
-            "postfix": ""
+            "postfix": "",
+            "display_mode": "environment"
           }
         },
         {
@@ -141,7 +142,7 @@
           "background": "#2f2f2f",
           "properties": {
             "prefix": " ",
-            "postfix": "",
+            "postfix": " ",
             "display_exit_code": false,
             "always_enabled": true,
             "error_color": "#e91e63",

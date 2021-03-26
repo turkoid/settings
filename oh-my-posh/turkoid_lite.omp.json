@@ -15,8 +15,8 @@
           "foreground": "#ffc62f",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "",
-            "postfix": " <#aaaaaa>»</> ",
+            "prefix": " ",
+            "postfix": " <#aaaaaa>»</>",
             "root_icon": "\uE0A2"
           }
         },
@@ -26,7 +26,7 @@
           "foreground": "#81c784",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "",
+            "prefix": " ",
             "postfix": " "
           }
         },
@@ -68,7 +68,8 @@
           "background": "#2f2f2f",
           "properties": {
             "prefix": "<#aaaaaa>»</> ",
-            "postfix": ""
+            "postfix": "",
+            "display_mode": "environment"
           }
         },
         {

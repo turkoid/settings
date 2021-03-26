@@ -15,7 +15,7 @@
           "foreground": "#aaaaaa",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "",
+            "prefix": " ",
             "postfix": " ",
             "mint": "<#a2e4b8>\uF30F</>",
             "ubuntu": "<#e95420>\uF31C</>",
