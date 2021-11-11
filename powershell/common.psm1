@@ -18,5 +18,6 @@ function Start-SshSession {
 Set-Alias np 'notepad++.exe'
 Set-Alias guid 'New-Guid'
 Set-Alias connect_to 'Start-SshSession'
+Set-Alias hack 'Start-SshSession'
 
 Export-ModuleMember -Alias * -Function *
