@@ -28,28 +28,6 @@ function Get-AllNonSystemFiles {
     Get-AllFiles -attributes !s @args
 }
 
-function Select-Command {
-    [CmdletBinding()]
-    param (
-        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true)]
-        [string]
-        $Command,
-
-        [Parameter()]
-        [switch]
-        $All
-    )
-    process {
-        $Locations = (where.exe $Command)
-        if ($All -or !$Locations) {
-            return $Locations
-        }
-        else {
-            return $Locations[0]
-        }
-    }
-}
-
 function Invoke-RemoteItem {
     param (
         [switch]
@@ -68,6 +46,6 @@ Set-Alias touch 'New-File'
 Set-Alias la 'Get-AllFiles'
 Set-Alias ll 'Get-AllNonSystemFiles'
 Set-Alias rm 'Invoke-RemoteItem'
-Set-Alias whereis 'Select-Command'
+Set-Alias whereis 'Get-Command'
 
 Export-ModuleMember -Alias * -Function *
