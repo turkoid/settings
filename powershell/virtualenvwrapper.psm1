@@ -9,7 +9,7 @@ function Get-VirtualEnvironment {
         Write-Output 'Pass a name to activate one of the following virtualenvs:'
         Write-Output '=============================================================================='
     }
-    Get-ChildItem 'C:\home\dev\python\.virtualenvs' | Where-Object { $_.PSIsContainer } | Where-Object { Test-Path (Join-Path $_.FullName 'pyvenv.cfg') } | ForEach-Object { $_.Name }
+    Get-ChildItem "$env:workon_home" | Where-Object { $_.PSIsContainer } | Where-Object { Test-Path (Join-Path $_.FullName 'pyvenv.cfg') } | ForEach-Object { $_.Name }
 }
 
 class VirtualEnvironments : System.Management.Automation.IValidateSetValuesGenerator {
