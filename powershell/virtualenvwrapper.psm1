@@ -1,14 +1,4 @@
 function Get-VirtualEnvironment {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [switch]
-        $ShowHelp = $false
-    )
-    if ($ShowHelp) {
-        Write-Output 'Pass a name to activate one of the following virtualenvs:'
-        Write-Output '=============================================================================='
-    }
     Get-ChildItem "$env:workon_home" | Where-Object { $_.PSIsContainer } | Where-Object { Test-Path (Join-Path $_.FullName 'pyvenv.cfg') } | ForEach-Object { $_.Name }
 }
 
@@ -44,7 +34,9 @@ function Enter-VirtualEnvironment {
         Set-WorkingDirectory -IgnoreMissingProjectFile
     }
     else {
-        Get-VirtualEnvironment -ShowHelp
+        Write-Output 'Pass a name to activate one of the following virtualenvs:'
+        Write-Output '=============================================================================='
+        Get-VirtualEnvironment
     }
 }
 
