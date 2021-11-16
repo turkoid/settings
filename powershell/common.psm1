@@ -12,7 +12,7 @@ function Start-SshSession {
         [string]
         $ServerAlias
     )
-    ssh ([System.Environment]::GetEnvironmentVariable("ssh_$ServerAlias"))
+    ssh (Get-Item env:"ssh_$ServerAlias").Value
 }
 
 Set-Alias np 'notepad++.exe'
