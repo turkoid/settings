@@ -4,11 +4,21 @@ function Write-SimpleError($message) {
     [Console]::ResetColor()
 }
 
+function Get-SshServer {
+    Get-Item env:ssh_* | Sort-Object Name | ForEach-Object { $_.Name.Substring(4) }
+}
+
+class SshServers : System.Management.Automation.IValidateSetValuesGenerator {
+    [String[]] GetValidValues() {
+        return [string[]] (Get-SshServer)
+    }
+}
+
 function Start-SshSession {
     [CmdletBinding()]
     param (
         [Parameter(Position = 0, Mandatory = $true)]
-        [ValidateScript( { Test-Path env:ssh_$_ })]
+        [ValidateSet([SshServers])]
         [string]
         $ServerAlias
     )
