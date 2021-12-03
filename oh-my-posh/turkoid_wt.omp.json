@@ -15,7 +15,7 @@
           "foreground": "#aaaaaa",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": " ",
+            "prefix": "\u2800",
             "postfix": "",
             "mint": "<#a2e4b8>\uF30F</>",
             "ubuntu": "<#e95420>\uF31C</>",
@@ -41,7 +41,7 @@
           "foreground": "#81c784",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "prefix": "<#aaaaaa>\uE0B1</>\u2800",
             "postfix": ""
           }
         },
@@ -52,7 +52,7 @@
           "foreground": "#56b6c2",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "prefix": "<#aaaaaa>\uE0B1</>\u2800",
             "postfix": "",
             "style": "full"
           }
@@ -64,7 +64,7 @@
           "foreground": "#d0666f",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "prefix": "<#aaaaaa>\uE0B1</>\u2800",
             "postfix": "",
             "color_background": false,
             "display_stash_count": true,
@@ -82,7 +82,7 @@
           "foreground": "#4b8bbe",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</> ",
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</>\u2800",
             "postfix": "",
             "display_mode": "environment"
           }
@@ -94,7 +94,7 @@
           "foreground": "#00adef",
           "background": "#2f2f2f",
           "properties": {
-            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uFB0F</> ",
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uFB0F</>\u2800",
             "postfix": "",
             "display_version": false
           }
