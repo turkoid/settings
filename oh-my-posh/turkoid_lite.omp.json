@@ -13,7 +13,7 @@
           "type": "root",
           "style": "plain",
           "foreground": "#ffc62f",
-          "background": "#2f2f2f",
+          "background": "transparent",
           "properties": {
             "prefix": " ",
             "postfix": " <#aaaaaa>»</>",
@@ -24,7 +24,7 @@
           "type": "session",
           "style": "plain",
           "foreground": "#81c784",
-          "background": "#2f2f2f",
+          "background": "transparent",
           "properties": {
             "prefix": " ",
             "postfix": " "
@@ -34,7 +34,7 @@
           "type": "path",
           "style": "plain",
           "foreground": "#56b6c2",
-          "background": "#2f2f2f",
+          "background": "transparent",
           "properties": {
             "prefix": "<#aaaaaa>»</> ",
             "postfix": " ",
@@ -45,7 +45,7 @@
           "type": "git",
           "style": "plain",
           "foreground": "#d0666f",
-          "background": "#2f2f2f",
+          "background": "transparent",
           "properties": {
             "prefix": "<#aaaaaa>»</> ",
             "postfix": " ",
@@ -65,23 +65,11 @@
           "type": "python",
           "style": "plain",
           "foreground": "#4b8bbe",
-          "background": "#2f2f2f",
+          "background": "transparent",
           "properties": {
             "prefix": "<#aaaaaa>»</> ",
             "postfix": "",
             "display_mode": "environment"
-          }
-        },
-        {
-          "type": "text",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B0",
-          "foreground": "#ffffff",
-          "background": "#2f2f2f",
-          "properties": {
-            "text": " ",
-            "postfix": "",
-            "prefix": ""
           }
         }
       ]
