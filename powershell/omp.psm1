@@ -1,5 +1,5 @@
 Import-Module posh-git
-Import-Module oh-my-posh
+# Import-Module oh-my-posh
 
 class CustomOhMyPoshThemes : System.Management.Automation.IValidateSetValuesGenerator {
     [String[]] GetValidValues() {
@@ -29,7 +29,8 @@ function Set-CustomPoshPrompt() {
     if ($Name -like 'tk*' -and !(Test-Path (Join-Path $env:dev_home "git\settings\oh-my-posh\$Name.omp.json"))) {
         $Name = 'turkoid' + $Name.Substring(2)
     }
-    Set-PoshPrompt -Theme (Join-Path $env:dev_home "git\settings\oh-my-posh\$Name.omp.json")
+    oh-my-posh --init --shell pwsh --config (Join-Path $env:dev_home "git\settings\oh-my-posh\$Name.omp.json") | Invoke-Expression
+    # Set-PoshPrompt -Theme (Join-Path $env:dev_home "git\settings\oh-my-posh\$Name.omp.json")
 }
 
 Set-Alias omp 'Set-CustomPoshPrompt'
