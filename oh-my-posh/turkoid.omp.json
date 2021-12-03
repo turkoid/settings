@@ -12,7 +12,6 @@
         {
           "type": "os",
           "style": "diamond",
-          "powerline_symbol": "\uE0B0",
           "foreground": "#aaaaaa",
           "background": "#2f2f2f",
           "properties": {
