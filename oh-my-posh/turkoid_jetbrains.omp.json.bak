@@ -1,7 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 2,
   "final_space": true,
+  "console_title": true,
+  "console_title_style": "template",
   "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
   "blocks": [
     {
@@ -13,11 +14,12 @@
           "style": "diamond",
           "foreground": "#aaaaaa",
           "background": "transparent",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "properties": {
-            "mint": "<#a2e4b8>\uf30f</>",
-            "ubuntu": "<#e95420>\uf31c</>",
-            "windows": "<#00adef>\ue70f</>"
+            "prefix": " ",
+            "postfix": " ",
+            "mint": "<#a2e4b8>\uF30F</>",
+            "ubuntu": "<#e95420>\uF31C</>",
+            "windows": "<#00adef>\uE70F</>"
           }
         },
         {
@@ -25,9 +27,10 @@
           "style": "plain",
           "foreground": "#ffc62f",
           "background": "transparent",
-          "template": "\uf0e7 ",
           "properties": {
-            "root_icon": "\ue0a2"
+            "prefix": "",
+            "postfix": " ",
+            "root_icon": "\uE0A2"
           }
         },
         {
@@ -35,15 +38,19 @@
           "style": "plain",
           "foreground": "#81c784",
           "background": "transparent",
-          "template": "<#aaaaaa>\ue0b1</> {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} "
+          "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " "
+          }
         },
         {
           "type": "path",
           "style": "plain",
           "foreground": "#56b6c2",
           "background": "transparent",
-          "template": "<#aaaaaa>\ue0b1</> {{ .Path }} ",
           "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " ",
             "style": "full"
           }
         },
@@ -52,12 +59,16 @@
           "style": "plain",
           "foreground": "#d0666f",
           "background": "transparent",
-          "template": "<#aaaaaa>\ue0b1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 <#ff1744>{{ .Working.String }}</>{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 <#4caf50>{{ .Staging.String }}</>{{ end }} ",
           "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> ",
+            "postfix": " ",
+            "color_background": false,
+            "display_stash_count": true,
+            "local_changes_color": "#ffeb3b",
+            "working_color": "#ff1744",
+            "staging_color": "#4caf50",
             "ahead_color": "#26c6da",
-            "behind_color": "#ff1744",
-            "fetch_stash_count": true,
-            "local_changes_color": "#ffeb3b"
+            "behind_color": "#ff1744"
           }
         },
         {
@@ -65,8 +76,9 @@
           "style": "plain",
           "foreground": "#4b8bbe",
           "background": "transparent",
-          "template": "<#aaaaaa>\ue0b1</> <#ffd43b>\ue235</> {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
           "properties": {
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uE235</> ",
+            "postfix": " ",
             "display_mode": "environment"
           }
         },
@@ -75,25 +87,30 @@
           "style": "plain",
           "foreground": "#00adef",
           "background": "transparent",
-          "template": "<#aaaaaa>\ue0b1</> <#ffd43b>\ufb0f</> {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "properties": {
-            "fetch_version": false
+            "prefix": "<#aaaaaa>\uE0B1</> <#ffd43b>\uFB0F</> ",
+            "postfix": " ",
+            "display_version": false
           }
         }
       ]
     },
     {
       "type": "prompt",
+      "newline": true,
       "alignment": "left",
       "segments": [
         {
           "type": "text",
           "style": "plain",
           "foreground": "#ffffff",
-          "template": "❯"
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "\u276F"
+          }
         }
-      ],
-      "newline": true
+      ]
     }
   ]
 }
