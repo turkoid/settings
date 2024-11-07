@@ -1,10 +1,38 @@
 function Get-VirtualEnvironment {
-    Get-ChildItem "$env:workon_home" | Where-Object { $_.PSIsContainer } | Where-Object { Test-Path (Join-Path $_.FullName 'pyvenv.cfg') } | ForEach-Object { $_.Name }
+    $VenvDirs = @{}
+    $VenvPaths = $env:WORKON_HOME -split ';'
+    foreach ($BasePath in $VenvPaths) {
+        if (-not (Test-Path -Path $BasePath)) {
+            continue
+        }
+        # {directory}/pyvenv.cfg
+        Get-ChildItem -Path $BasePath -Directory |
+            ForEach-Object {
+                $VenvPath = $_.FullName
+                $ConfigPath = Join-Path $VenvPath 'pyvenv.cfg'
+                if ((Test-Path -Path $ConfigPath) -and -not ($VenvDirs.ContainsKey($_.Name))) {
+                    $VenvDirs[$_.Name] = $VenvPath
+                }
+            }
+
+        # {directory}/.venv/pyvenv.cfg
+        Get-ChildItem -Path $BasePath -Directory |
+            ForEach-Object {
+                $VenvPath = Join-Path $_.FullName '.venv'
+                $ConfigPath = Join-Path $VenvPath 'pyvenv.cfg'
+                if (Test-Path -Path $ConfigPath) {
+                    $VenvDirs[$_.Name] = $VenvPath
+                }
+            }
+    }
+
+    return $VenvDirs
+    # Get-ChildItem "$env:workon_home" | Where-Object { $_.PSIsContainer } | Where-Object { Test-Path (Join-Path $_.FullName 'pyvenv.cfg') } | ForEach-Object { $_.Name }
 }
 
 class VirtualEnvironments : System.Management.Automation.IValidateSetValuesGenerator {
     [String[]] GetValidValues() {
-        return [string[]] (Get-VirtualEnvironment)
+        return [string[]] ((Get-VirtualEnvironment).Keys)
     }
 }
 
@@ -17,7 +45,7 @@ function Set-VirtualEnvironment {
     )
 
     $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
-    $activate = Join-Path "$env:workon_home" "$EnvName" 'scripts\activate.ps1'
+    $activate = Join-Path (Get-VirtualEnvironment)[$EnvName] 'scripts\activate.ps1'
     & $activate
 }
 
