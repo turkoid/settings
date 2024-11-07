@@ -1,4 +1,4 @@
-Import-Module posh-git
+# Import-Module posh-git
 # Import-Module oh-my-posh
 
 class CustomOhMyPoshThemes : System.Management.Automation.IValidateSetValuesGenerator {
