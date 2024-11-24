@@ -1,7 +1,7 @@
-Import-Module $env:dev_home\git\settings\powershell\bash-emulation -Force
-Import-Module $env:dev_home\git\settings\powershell\virtualenvwrapper -Force
-Import-Module $env:dev_home\git\settings\powershell\omp -Force
-Import-Module $env:dev_home\git\settings\powershell\common -Force
+Import-Module $env:dev_home\git\settings\powershell\bash-emulation
+Import-Module $env:dev_home\git\settings\powershell\virtualenvwrapper
+Import-Module $env:dev_home\git\settings\powershell\omp
+Import-Module $env:dev_home\git\settings\powershell\common
 
 Set-CustomPoshPrompt
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
